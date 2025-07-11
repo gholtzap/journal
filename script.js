@@ -37,6 +37,52 @@ document.addEventListener('DOMContentLoaded', () => {
     return filename.replace(/\.md$/, '').replace(/[-_]/g, '-');
   }
 
+  // Meta tag management for social media previews
+  function updateMetaTags(articleTitle, articleDescription, articleUrl) {
+    const baseUrl = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+      ? 'http://127.0.0.1:5500/'
+      : 'https://gholtzap.github.io/journal/';
+    
+    const faviconUrl = `${baseUrl}favicon.ico`;
+    
+    // Update page title
+    document.title = articleTitle ? `${articleTitle} - Gavin's Journal` : 'Gavin\'s Journal';
+    
+    // Update meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.content = articleDescription || 'A personal blog by Gavin covering tech, career advice, and insights.';
+    }
+    
+    // Update Open Graph tags
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    const ogImage = document.querySelector('meta[property="og:image"]');
+    const ogType = document.querySelector('meta[property="og:type"]');
+    
+    if (ogTitle) ogTitle.content = articleTitle || 'Gavin\'s Journal';
+    if (ogDescription) ogDescription.content = articleDescription || 'A personal blog by Gavin covering tech, career advice, and insights.';
+    if (ogUrl) ogUrl.content = articleUrl || baseUrl;
+    if (ogImage) ogImage.content = faviconUrl;
+    if (ogType) ogType.content = articleTitle ? 'article' : 'website';
+    
+    // Update Twitter Card tags
+    const twitterTitle = document.querySelector('meta[property="twitter:title"]');
+    const twitterDescription = document.querySelector('meta[property="twitter:description"]');
+    const twitterUrl = document.querySelector('meta[property="twitter:url"]');
+    const twitterImage = document.querySelector('meta[property="twitter:image"]');
+    
+    if (twitterTitle) twitterTitle.content = articleTitle || 'Gavin\'s Journal';
+    if (twitterDescription) twitterDescription.content = articleDescription || 'A personal blog by Gavin covering tech, career advice, and insights.';
+    if (twitterUrl) twitterUrl.content = articleUrl || baseUrl;
+    if (twitterImage) twitterImage.content = faviconUrl;
+  }
+
+  function resetMetaTags() {
+    updateMetaTags(null, null, null);
+  }
+
   function getFileFromPostSlug(slug) {
     // Convert slug back to filename
     const files = [
@@ -120,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     links.forEach(l => l.classList.remove('active'));
     currentIndex = -1;
     updateURL(null);
+    resetMetaTags();
   }
 
   function openArticleByIndex(index) {
@@ -146,6 +193,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (firstHeading) {
           firstHeading.remove();
         }
+
+        // Extract description from content for meta tags
+        const firstParagraph = tempDiv.querySelector('p');
+        const articleDescription = firstParagraph ? 
+          firstParagraph.textContent.substring(0, 160) + (firstParagraph.textContent.length > 160 ? '...' : '') : 
+          `Read "${articleTitle}" on Gavin's Journal`;
 
         // Create share button
         const shareableLink = getShareableLink(file);
@@ -182,6 +235,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (updateUrl) {
           updateURL(file);
         }
+
+        // Update meta tags for social media sharing
+        updateMetaTags(articleTitle, articleDescription, shareableLink);
       })
       .catch(() => {
         articleContent.innerHTML = '<p>Unable to load article.</p>';
