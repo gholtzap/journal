@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gavin's Journal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
+
+<body>
+  <header class="blog-header">
+    <h1 class="title">Gavin's Journal</h1>
+    <nav class="tab-navigation">
+      <button class="tab-btn active" data-tab="writing">Writing</button>
+      <button class="tab-btn" data-tab="video">Video</button>
+    </nav>
+  </header>
+
+  <main class="tab-content active" id="writingTab">
+    <div class="container" id="mainContainer">
+      <aside class="sidebar">
+        <ul class="article-list" id="articleList"></ul>
+      </aside>
+      <article class="article-content" id="articleContent"></article>
+    </div>
+  </main>
+
+  <main class="tab-content" id="videoTab">
+    <div class="video-container">
+      <div class="video-grid">
+        <div class="video-item">
+          <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/videoseries?si=a6OriD4U0GEwk1j7&amp;list=PLuZGcTcvaS33xcMJWavUV3oqX9eZE-bkH"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <h3>Deterministic Finite Automata (DFA) Series</h3>
+          <p>Doing some practice problems.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
