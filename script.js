@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ? 'http://127.0.0.1:5500/'
       : 'https://gholtzap.github.io/journal/';
     
-    const faviconUrl = `${baseUrl}favicon.ico`;
+    const imageUrl = `${baseUrl}main_img.jpg`;
     
     // Update page title
     document.title = articleTitle ? `${articleTitle} - Gavin's Journal` : 'Gavin\'s Journal';
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.content = articleDescription || 'A personal blog by Gavin covering tech, career advice, and insights.';
+      metaDescription.content = articleDescription || 'Posts and videos by Gavin Holtzapple';
     }
     
     // Update Open Graph tags
@@ -62,9 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const ogType = document.querySelector('meta[property="og:type"]');
     
     if (ogTitle) ogTitle.content = articleTitle || 'Gavin\'s Journal';
-    if (ogDescription) ogDescription.content = articleDescription || 'A personal blog by Gavin covering tech, career advice, and insights.';
+    if (ogDescription) ogDescription.content = articleDescription || 'Posts and videos by Gavin Holtzapple';
     if (ogUrl) ogUrl.content = articleUrl || baseUrl;
-    if (ogImage) ogImage.content = faviconUrl;
+    if (ogImage) ogImage.content = imageUrl;
     if (ogType) ogType.content = articleTitle ? 'article' : 'website';
     
     // Update Twitter Card tags
@@ -74,9 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const twitterImage = document.querySelector('meta[property="twitter:image"]');
     
     if (twitterTitle) twitterTitle.content = articleTitle || 'Gavin\'s Journal';
-    if (twitterDescription) twitterDescription.content = articleDescription || 'A personal blog by Gavin covering tech, career advice, and insights.';
+    if (twitterDescription) twitterDescription.content = articleDescription || 'Posts and videos by Gavin Holtzapple';
     if (twitterUrl) twitterUrl.content = articleUrl || baseUrl;
-    if (twitterImage) twitterImage.content = faviconUrl;
+    if (twitterImage) twitterImage.content = imageUrl;
   }
 
   function resetMetaTags() {
