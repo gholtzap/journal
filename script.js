@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let links = [];
   let currentIndex = -1;
 
+
+
   // URL routing functions
   function getPostSlugFromFile(filename) {
     return filename.replace(/\.md$/, '').replace(/[-_]/g, '-');
