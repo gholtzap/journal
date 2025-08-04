@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabBtns = document.querySelectorAll('.tab-btn');
   const tabContents = document.querySelectorAll('.tab-content');
 
-  function switchTab(targetTab) {
+  function switchTab(targetTab, updateUrl = true) {
     tabBtns.forEach(btn => btn.classList.remove('active'));
     tabContents.forEach(content => content.classList.remove('active'));
 
@@ -13,7 +13,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (activeBtn && activeContent) {
       activeBtn.classList.add('active');
       activeContent.classList.add('active');
+      
+      if (updateUrl) {
+        updateTabURL(targetTab);
+      }
     }
+  }
+
+  // Tab URL management functions
+  function updateTabURL(tab) {
+    // For writing tab, don't add hash unless there's a specific post
+    if (tab === 'writing') {
+      const hash = window.location.hash;
+      if (!hash.startsWith('#post-')) {
+        history.pushState(null, null, window.location.pathname);
+      }
+    } else {
+      history.pushState(null, null, `#${tab}`);
+    }
+  }
+
+  function parseTabFromURL() {
+    const hash = window.location.hash;
+    if (hash === '#video') return 'video';
+    if (hash === '#resume') return 'resume';
+    if (hash.startsWith('#post-')) return 'writing';
+    return 'writing'; // default tab
   }
 
   // Add event listeners to tab buttons
@@ -280,12 +305,17 @@ document.addEventListener('DOMContentLoaded', () => {
     links = Array.from(document.querySelectorAll('.article-list a'));
     attachLinkHandlers();
 
-    // Check URL on page load and open post if present
+    // Check URL on page load and open post or switch tab if present
+    const initialTab = parseTabFromURL();
     const initialPostFile = parseCurrentURL();
+    
     if (initialPostFile) {
       // Switch to writing tab if opening a post
-      switchTab('writing');
+      switchTab('writing', false);
       openArticleByFile(initialPostFile, false);
+    } else {
+      // Switch to the appropriate tab based on URL
+      switchTab(initialTab, false);
     }
   }
 
@@ -294,11 +324,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle browser back/forward buttons
   window.addEventListener('popstate', () => {
     const postFile = parseCurrentURL();
+    const currentTab = parseTabFromURL();
+    
     if (postFile) {
-      switchTab('writing');
+      switchTab('writing', false);
       openArticleByFile(postFile, false);
     } else {
       closeArticle();
+      switchTab(currentTab, false);
     }
   });
 

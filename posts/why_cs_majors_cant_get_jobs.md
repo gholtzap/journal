@@ -59,6 +59,6 @@ Your project should hit at least one of these categories:
 2. Attract a ton of attention  
 3. Be interesting af
 
-If your project cannot meet any of these criteria, then **do not make it**.
+If your project cannot meet any of these criteria, then do not make it.
 
-If you cannot make a project that meets this criteria, then you won’t be able to make a project for a company either. Companies hire engineers to make stuff for them. **If you can’t make stuff, they won’t want to hire you.**
+If you cannot make a project that meets this criteria, then you won’t be able to make a project for a company either. Companies hire engineers to make stuff for them. If you can’t make stuff, they won’t want to hire you.
