@@ -17,6 +17,8 @@ The new standard for computer science students is to **make things**. Write pape
 
 It makes sense. If you want a career making software, you should learn by making software. So why don’t more students realize this sooner?
 
+---
+
 ## **Agency**
 
 The field of computer science has given students unlimited agency. If you think about other careers, it is quite difficult to practice the subject at an advanced level. You need starting capital (provided by universities) to make stuff. Some examples:
@@ -34,7 +36,9 @@ Thus, this barrier has been removed. Computer science students are no longer rel
 
 Over time, students and companies have realized this. Students are creating projects on their own accord, and companies are hiring such students because they have obtained practical skills leagues above a textbook student.
 
-If you are a textbook student struggling to get a job in university, this is why. You’re not in the same league as students who build real projects outside the classroom.
+If you are a textbook student struggling to get a job in university, this is why. You're not in the same league as students who build real projects outside the classroom.
+
+---
 
 ## **What Can I Do?**
 
@@ -47,13 +51,17 @@ My advice to CS majors is: **your major is almost useless on its own.** CS is th
 
 These are some of the most lucrative areas for projects of all time. 
 
+---
+
 You don’t have to be an expert in another field, but you need to be good enough to identify a problem to solve. Examples:
 
 - If you play video games, create a cheating engine.  
 - If you own stocks, create an asset management tool.  
 - If you rock climb, create an AR interface to map routes.  
 
-Your project should hit at least one of these categories:
+---
+
+**Your project should hit at least one of these categories:**
 
 1. Make money  
 2. Attract a ton of attention  

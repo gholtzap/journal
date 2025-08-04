@@ -157,13 +157,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Simple Markdown to HTML converter (supports headings and paragraphs, bold, italic, links)
+  // Simple Markdown to HTML converter (supports headings and paragraphs, bold, italic, links, horizontal rules)
   function markdownToHTML(md) {
     // Escape HTML
     let html = md
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
+
+    // Horizontal rules --- or ***
+    html = html.replace(/^(?:---|\*\*\*)\s*$/gm, '<hr>');
 
     // Headings # ## ###
     html = html.replace(/^###\s+(.+)$/gm, '<h4>$1</h4>');
@@ -181,8 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Links [text](url)
     html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
 
-    // Paragraphs
-    html = html.replace(/^(?!<h\d>)(.+)$/gm, '<p>$1</p>');
+    // Paragraphs (exclude hr tags)
+    html = html.replace(/^(?!<h\d>|<hr>)(.+)$/gm, '<p>$1</p>');
 
     return html;
   }
