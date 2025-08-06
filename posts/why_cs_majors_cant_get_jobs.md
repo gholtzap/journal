@@ -42,7 +42,7 @@ If you are a textbook student struggling to get a job in university, this is why
 
 ## **What Can I Do?**
 
-My advice to CS majors is: **your major is almost useless on its own.** CS is the most powerful field when combined with knowledge in another field. For example:
+My advice to CS majors is: CS is the most powerful field when combined with knowledge in another field. For example:
 
 - CS + Finance  
 - CS + Biology  
@@ -65,8 +65,8 @@ You don’t have to be an expert in another field, but you need to be good enoug
 
 1. Make money  
 2. Attract a ton of attention  
-3. Be interesting af
+3. Be interesting to you or the world
 
-If your project cannot meet any of these criteria, then do not make it.
+If your project cannot meet any of these criteria, then do not make it. If you don't know enough to make a project, then learn.
 
 If you cannot make a project that meets this criteria, then you won’t be able to make a project for a company either. Companies hire engineers to make stuff for them. If you can’t make stuff, they won’t want to hire you.
