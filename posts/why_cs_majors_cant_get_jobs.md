@@ -51,6 +51,8 @@ My advice to CS majors is: CS is the most powerful field when combined with know
 
 These are some of the most lucrative areas for projects of all time. 
 
+You don't have to be a great computer scientist to make a project. You can be the first person to intersect something you're passionate about with computer science, and perhaps that's even better.
+
 ---
 
 You don’t have to be an expert in another field, but you need to be good enough to identify a problem to solve. Examples:
@@ -63,9 +65,9 @@ You don’t have to be an expert in another field, but you need to be good enoug
 
 **Your project should hit at least one of these categories:**
 
-1. Make money  
-2. Attract a ton of attention  
-3. Be interesting to you or the world
+1. Be interesting to you or the world
+2. Attract attention  
+3. Make money
 
 If your project cannot meet any of these criteria, then do not make it. If you don't know enough to make a project, then learn.
 
