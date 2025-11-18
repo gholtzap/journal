@@ -113,10 +113,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function getFileFromPostSlug(slug) {
     // Convert slug back to filename
     const files = [
+      'you_know_about_crypto_for_the_wrong_reasons.md.md',
       'why_cs_majors_cant_get_jobs.md',
       'advice_to_college_freshmen.md',
     ];
-    
+
     return files.find(file => getPostSlugFromFile(file) === slug);
   }
 
@@ -287,6 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function loadPostList() {
     // List of available posts (update this array when you add new posts)
     const files = [
+      'you_know_about_crypto_for_the_wrong_reasons.md',
       'why_cs_majors_cant_get_jobs.md',
       'advice_to_college_freshmen.md',
     ];
